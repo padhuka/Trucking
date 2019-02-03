@@ -15,7 +15,7 @@ if (isset($_POST['register'])) {
 
 	if ($password == $confirm_password) {
 		if (preg_match("/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/", $email_address)) {
-			if (preg_match("/^[6-9]\d{9}$/", $mobile_number)) {
+			if (preg_match("^((?:\+62|62)|0)[2-9]{1}[0-9]+$^", $mobile_number)) {
 
 				$sql_email = "SELECT email_address FROM user WHERE email_address='$email_address'";
 				$result_email = mysqli_query($conn, $sql_email);
@@ -151,12 +151,12 @@ if (isset($_POST['forgot'])) {
 		$mail->isSMTP();                                      // Set mailer to use SMTP
 		$mail->Host = 'smtp.gmail.com';  // Specify main and backup SMTP servers
 		$mail->SMTPAuth = true;                               // Enable SMTP authentication
-		$mail->Username = 'your email address';                 // SMTP username
-		$mail->Password = 'email password';                         // SMTP password
+		$mail->Username = 'it.hondasolobaru@gmail.com';                 // SMTP username
+		$mail->Password = 'h0nd4s0l0b4ru';                         // SMTP password
 		$mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
 		$mail->Port = 587;                                    // TCP port to connect to
 		$to = $email_address;
-		$mail->setFrom('your email address', 'XYZ');
+		$mail->setFrom('it.hondasolobaru@gmail.com', 'Reste Password');
 		$mail->addAddress($to);     // Add a recipient
 
 		$mail->isHTML(true);                                  // Set email format to HTML
