@@ -161,14 +161,14 @@ if (isset($_POST['forgot'])) {
         // $mail->SMTPDebug = 3;                               // Enable verbose debug output
 
 		$mail->isSMTP();                                      // Set mailer to use SMTP
-		$mail->Host = 'smtp.gmail.com';  // Specify main and backup SMTP servers
+		$mail->Host = 'smtp.zoho.com';  // Specify main and backup SMTP servers
 		$mail->SMTPAuth = true;                               // Enable SMTP authentication
-		$mail->Username = 'dapras.solo@gmail.com';                 // SMTP username
-		$mail->Password = 'yusufahmad1678';                         // SMTP password
+		$mail->Username = 'noreply@ssonlab.com';                 // SMTP username
+		$mail->Password = 'F0rg3tm3!';                         // SMTP password
 		$mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
 		$mail->Port = 587;                                    // TCP port to connect to
 		$to = $email_address;
-		$mail->setFrom('dapras.solo@gmail.com', 'Reset Password');
+		$mail->setFrom('noreply@ssonlab.com', 'Reset Password');
 		$mail->addAddress($to);     // Add a recipient
 
 		$mail->isHTML(true);                                  // Set email format to HTML
@@ -180,7 +180,7 @@ if (isset($_POST['forgot'])) {
         You recently requested to reset your password for your XYZ account.Click the button below to reset it. <br>
         <br><br>
         
-        <button type='button' class='btn btn-secondary'><a href='http://localhost/Email_Sending/reset_password.php'>Reset Password</a></button>
+        <button type='button' class='btn btn-secondary'><a href='http://t-truck.com/reset_password.php'>Reset Password</a></button>
 
         <br><br>
 
