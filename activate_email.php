@@ -14,14 +14,14 @@
 	//$mail->SMTPDebug = 3;                               // Enable verbose debug output
 
 	$mail->isSMTP();                                      // Set mailer to use SMTP
-	$mail->Host = 'smtp.gmail.com';  // Specify main and backup SMTP servers
+	$mail->Host = 'tls:smtp.gmail.com:587';  // Specify main and backup SMTP servers
 	$mail->SMTPAuth = true;                               // Enable SMTP authentication
-	$mail->Username = 'it.hondasolobaru@gmail.com';                 // SMTP username
-	$mail->Password = 'h0nd4s0l0b4ru';                           // SMTP password
+	$mail->Username = 'dapras.solo@gmail.com';                 // SMTP username
+	$mail->Password = 'yusufahmad1678';                           // SMTP password
 	$mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
 	$mail->Port = 587;                                    // TCP port to connect to
 	$to=$_SESSION['email_address'];
-	$mail->setFrom('it.hondasolobaru@gmail.com', 'Validation Registration');
+	$mail->setFrom('dapras.solo@gmail.com', 'Validation Registration');
 	$mail->addAddress($to);     // Add a recipient
 
 	$mail->isHTML(true);                                  // Set email format to HTML

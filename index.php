@@ -11,7 +11,8 @@ if (isset($_POST['register'])) {
 	$mobile_number = mysqli_real_escape_string($conn, $_POST['mobile_number']);
 	$email_address = mysqli_real_escape_string($conn, $_POST['email_address']);
 	$password = mysqli_real_escape_string($conn, $_POST['password']);
-	$confirm_password = mysqli_real_escape_string($conn, $_POST['confirm_password']);
+	$confirm_password = mysqli_real_escape_string($conn, $_POST['confirm_password']);	
+	
 
 	if ($password == $confirm_password) {
 		if (preg_match("/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/", $email_address)) {
@@ -34,8 +35,14 @@ if (isset($_POST['register'])) {
 				} else {
 					$activation_code = hash('sha256', mt_rand(0, 1000));
 					$hash_password = md5($password);
+					//user_id	username	mobile_number	user_type	no_ktp	email_address	fk_jenis_truck	address	domisili	area_operasi
+					$usertype = $_POST['pilihans'];
+					$no_ktp = $_POST['ktp'];
+					$address = $_POST['alamat'];
+					$area_operasi = $_POST['areaoperasi'];
 
-					$sql = "INSERT INTO user (`username`,`password`,`mobile_number`,`email_address`,`activation_code`) VALUES('$username','$hash_password','$mobile_number','$email_address','$activation_code')";
+					$sql = "INSERT INTO user (`username`,`password`,`mobile_number`,`email_address`,`activation_code`,user_type,no_ktp,address,area_operasi) VALUES('$username','$hash_password','$mobile_number','$email_address','$activation_code','$usertype','$no_ktp','$address','$area_operasi')";
+					echo $sql;
 
 					$result = mysqli_query($conn, $sql);
 
@@ -89,6 +96,8 @@ if (isset($_POST['login'])) {
 	} else {
 		$row = mysqli_fetch_array($result);
 		$username = $row['username'];
+		$usertype = $row['user_type'];
+		$userid = $row['user_id'];
 		$count = mysqli_num_rows($result);
 		if ($count == 1) {
 			if ($row['confirm_status'] == 0) {
@@ -97,9 +106,11 @@ if (isset($_POST['login'])) {
 				echo 'setTimeout(function () { sweetAlert("Warning...","Please activate your account first!..","warning");';
 				echo '}, 500);</script>';
 			} else {
-				$_SESSION['username'] = $username;
+				$_SESSION['sesiuidtruck'] = $username;
 				$_SESSION['email_address'] = $email_address;
-				echo "<div class='alert alert-primary' role='alert' style='text-align:center;'>
+				$_SESSION['lvl']=$usertype;
+				$_SESSION['userid']=$userid;
+				/*echo "<div class='alert alert-primary' role='alert' style='text-align:center;'>
 	Logged In as " . $username .    "<a href='logout.php'> |  logout </a></div>";
 				echo "
 	<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>";
@@ -107,7 +118,8 @@ if (isset($_POST['login'])) {
 				$(document).ready(function(){
 					$('#LRButton').hide();
 				});
-	</script>";
+	</script>";*/
+				echo "<script type='text/javascript'>window.location.href = 'truck/index.php'</script>";
 			}
 		} else {
 			echo '<script type="text/javascript">';
@@ -151,12 +163,12 @@ if (isset($_POST['forgot'])) {
 		$mail->isSMTP();                                      // Set mailer to use SMTP
 		$mail->Host = 'smtp.gmail.com';  // Specify main and backup SMTP servers
 		$mail->SMTPAuth = true;                               // Enable SMTP authentication
-		$mail->Username = 'it.hondasolobaru@gmail.com';                 // SMTP username
-		$mail->Password = 'h0nd4s0l0b4ru';                         // SMTP password
+		$mail->Username = 'dapras.solo@gmail.com';                 // SMTP username
+		$mail->Password = 'yusufahmad1678';                         // SMTP password
 		$mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
 		$mail->Port = 587;                                    // TCP port to connect to
 		$to = $email_address;
-		$mail->setFrom('it.hondasolobaru@gmail.com', 'Reste Password');
+		$mail->setFrom('dapras.solo@gmail.com', 'Reset Password');
 		$mail->addAddress($to);     // Add a recipient
 
 		$mail->isHTML(true);                                  // Set email format to HTML
@@ -231,10 +243,11 @@ if (isset($_POST['forgot'])) {
 		  <div class="tab-content">
 			<!--Panel 7-->
 			<div class="tab-pane fade in show active" id="panel7" role="tabpanel">
-  
+  				
 			  <!--Body-->
 			  <form action="index.php" method="post">
 			  <div class="modal-body mb-1">
+
 				<div class="md-form form-sm mb-5">
 				  <i class="fa fa-envelope prefix"></i>
 				  <input type="email" id="modalLRInput10" class="form-control form-control-sm validate" name="email_address" required>
@@ -263,21 +276,51 @@ if (isset($_POST['forgot'])) {
 			<!--/.Panel 7-->
   
 			<!--Panel 8-->
+			
 			<div class="tab-pane fade" id="panel8" role="tabpanel">
-  
-			  <!--Body-->
+				<form id="my_radio_box">
+  				<div class="modal-body" align="center">
+			  	 <input type="radio" name="my_options" id="my_options" value="customer" checked="true"> Customer &nbsp;&nbsp;&nbsp;
+			  	  <input type="radio" name="my_options" id="my_options" value="partner"> Partners
+			  	  
+			  	</div>
+			  <!--BodyNama
+No KTP
+No HP
+Email
+Jenis Truck
+Domisili
+Area operasi-->
+			 </form>
 			  <form action="index.php" method="post">
+			  	<input type="hidden" name="pilihans" id="pilihans" value="customer">
 			   <div class="modal-body">
 				<div class="md-form form-sm mb-5">
 					<i class="fa fa-user prefix"></i>
 					<input type="text" id="modalLRInput9" class="form-control form-control-sm validate" name="username" required>
 					<label data-error="wrong" data-success="right" for="modalLRInput9">User Name</label>
 				</div>
+				 <div class="md-form form-sm mb-5">
+				  <i class="fa fa-lock prefix"></i>
+				  <input type="password" id="modalLRInput13" class="form-control form-control-sm validate" name="password" required>
+				  <label data-error="wrong" data-success="right" for="modalLRInput13">Password</label>
+				</div>
+				<div class="md-form form-sm mb-4">
+				  <i class="fa fa-lock prefix"></i>
+				  <input type="password" id="modalLRInput14" class="form-control form-control-sm validate" name="confirm_password" required>
+				  <label data-error="wrong" data-success="right" for="modalLRInput14">Repeat password</label>
+				</div>
+				
+				<div class="md-form form-sm mb-5">
+					<i class="fa fa-mobile prefix"></i>
+					<input type="text" id="modalLRInput15" class="form-control form-control-sm validate" name="ktp" required>
+					<label data-error="wrong" data-success="right" for="modalLRInput15">No KTP</label>
+				</div>
 
 				<div class="md-form form-sm mb-5">
 					<i class="fa fa-mobile prefix"></i>
-					<input type="text" id="modalLRInput15" class="form-control form-control-sm validate" name="mobile_number" required>
-					<label data-error="wrong" data-success="right" for="modalLRInput15">Mobile Number</label>
+					<input type="text" id="mobile_number" class="form-control form-control-sm validate" name="mobile_number" required>
+					<label data-error="wrong" data-success="right" for="modalLRInput15">No Telp</label>
 				</div>
 
 				<div class="md-form form-sm mb-5">
@@ -287,15 +330,15 @@ if (isset($_POST['forgot'])) {
 				</div>
   
 				<div class="md-form form-sm mb-5">
-				  <i class="fa fa-lock prefix"></i>
-				  <input type="password" id="modalLRInput13" class="form-control form-control-sm validate" name="password" required>
-				  <label data-error="wrong" data-success="right" for="modalLRInput13">Your password</label>
+					<i class="fa fa-mobile prefix"></i>
+					<input type="text" id="alamat" class="form-control form-control-sm validate" name="alamat" required>
+					<label data-error="wrong" data-success="right" for="modalLRInput15">Alamat</label>
 				</div>
-  
-				<div class="md-form form-sm mb-4">
-				  <i class="fa fa-lock prefix"></i>
-				  <input type="password" id="modalLRInput14" class="form-control form-control-sm validate" name="confirm_password" required>
-				  <label data-error="wrong" data-success="right" for="modalLRInput14">Repeat password</label>
+  				
+				<div class="md-form form-sm mb-5" id="areane">
+					<i class="fa fa-mobile prefix"></i>
+					<input type="text" id="areaoperasi" class="form-control form-control-sm validate" name="areaoperasi" required>
+					<label data-error="wrong" data-success="false" for="modalLRInput15">Area Operasi</label>
 				</div>
   
 				<div class="text-center form-sm mt-2">
@@ -359,11 +402,24 @@ if (isset($_POST['forgot'])) {
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sweetalert2@7.28.11/dist/sweetalert2.min.js"></script>
 <!-- hide register/login modal and show forgot password modal -->
 <script>
+	$('#areane').hide();
 $(document).ready(function () {
 			$('#forgot').click(function(){
 				$('#modalLRForm').modal('hide');
 				$('ForgotPasswordModal').modal('show');
 			});
+			$('#my_radio_box').change(function(){
+						selected_value = $("input[name='my_options']:checked").val();
+						$('#pilihans').val(selected_value);
+						if (selected_value=='customer'){
+							$('#areane').hide();
+						}
+						if (selected_value=='partner'){
+							$('#areane').show();
+						}
+			            //alert(selected_value);
+			        });
+
 		});
 	</script>
 </body>
