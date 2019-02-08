@@ -337,7 +337,7 @@ Area operasi-->
   				
 				<div class="md-form form-sm mb-5" id="areane">
 					<i class="fa fa-mobile prefix"></i>
-					<input type="text" id="areaoperasi" class="form-control form-control-sm validate" name="areaoperasi" required>
+					<input type="text" id="areaoperasi" class="form-control form-control-sm" name="areaoperasi">
 					<label data-error="wrong" data-success="false" for="modalLRInput15">Area Operasi</label>
 				</div>
   
