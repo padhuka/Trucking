@@ -14,14 +14,14 @@
 	//$mail->SMTPDebug = 3;                               // Enable verbose debug output
 
 	$mail->isSMTP();                                      // Set mailer to use SMTP
-	$mail->Host = 'tls:smtp.gmail.com:587';  // Specify main and backup SMTP servers
+	$mail->Host = 'smtp.zoho.com';  // Specify main and backup SMTP servers
 	$mail->SMTPAuth = true;                               // Enable SMTP authentication
-	$mail->Username = 'dapras.solo@gmail.com';                 // SMTP username
-	$mail->Password = 'yusufahmad1678';                           // SMTP password
+	$mail->Username = 'noreply@ssonlab.com';                 // SMTP username
+	$mail->Password = 'F0rg3tm3!';                           // SMTP password
 	$mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
 	$mail->Port = 587;                                    // TCP port to connect to
 	$to=$_SESSION['email_address'];
-	$mail->setFrom('dapras.solo@gmail.com', 'Validation Registration');
+	$mail->setFrom('noreply@ssonlab.com', 'Trucking Solutions Validation');
 	$mail->addAddress($to);     // Add a recipient
 
 	$mail->isHTML(true);                                  // Set email format to HTML
@@ -36,7 +36,7 @@
 	------------------------
 	 
 	Please click this link to activate your account:----------------------<br><br><br><br>
-	http://localhost/Email_Sending/verify.php?email_address=".$_SESSION['email_address']."&activation_code=".$_SESSION['activation_code']."  "; // Our message above including the link
+	http://t-truck.com/verify.php?email_address=".$_SESSION['email_address']."&activation_code=".$_SESSION['activation_code']."  "; // Our message above including the link
 
 	if(!$mail->send()){
 	    echo 'Message could not be sent.';
