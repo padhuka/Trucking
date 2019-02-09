@@ -145,7 +145,7 @@
               </div>
               <!-- /.box-body -->
               <div class="box-footer">
-                  <input type="text" name="idhid" id="idhid">
+                  <input type="hidden" name="idhid" id="idhid">
                   <input type="hidden" name="userid" id="userid" value="<?php echo $userid;?>">
                   <button type="submit" class="btn btn-primary" id="saveadd">Simpan</button>
                   <button type="button" class="btn btn-primary" onclick="bataladd()" id="canceladd">Batal</button>

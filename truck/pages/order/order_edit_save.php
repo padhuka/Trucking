@@ -18,7 +18,7 @@
         $id = trim($_GET['id']);
         
                 $sqltbemp = "UPDATE orders SET fk_kota_asal='$fk_kota_asal',fk_kota_tujuan='$fk_kota_tujuan',alamat_asal='$alamat_asal',tanggal='$tanggal',fk_jenis_truck='$fk_jenis_truck',berat='$berat',dimensi_p='$dimensi_p',dimensi_t='$dimensi_t',dimensi_l='$dimensi_l',catatan='$catatan', tarif='$tarif' WHERE id='$id'";
-                echo $sqltbemp;
+                //echo $sqltbemp;
                 mysql_query($sqltbemp);
            // echo '
      //}
