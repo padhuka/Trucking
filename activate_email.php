@@ -16,12 +16,12 @@
 	$mail->isSMTP();                                      // Set mailer to use SMTP
 	$mail->Host = 'smtp.zoho.com';  // Specify main and backup SMTP servers
 	$mail->SMTPAuth = true;                               // Enable SMTP authentication
-	$mail->Username = 'noreply@ssonlab.com';                 // SMTP username
-	$mail->Password = 'F0rg3tm3!';                           // SMTP password
+	$mail->Username = 'it@ssonlab.com';                 // SMTP username
+	$mail->Password = '1bnu4bb4S';                           // SMTP password
 	$mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
 	$mail->Port = 587;                                    // TCP port to connect to
 	$to=$_SESSION['email_address'];
-	$mail->setFrom('noreply@ssonlab.com', 'Trucking Solutions Validation');
+	$mail->setFrom('it@ssonlab.com', 'Trucking Solutions Validation');
 	$mail->addAddress($to);     // Add a recipient
 
 	$mail->isHTML(true);                                  // Set email format to HTML
