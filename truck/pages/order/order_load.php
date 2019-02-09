@@ -40,11 +40,20 @@
                           <td ><?php echo $catat['berat'];?> Ton, <?php echo $catat['dimensi_p'];?> x <?php echo $catat['dimensi_l'];?> x <?php echo $catat['dimensi_t'];?></td>
                           <td >
                                         <button type="button" class="btn btn btn-default btn-circle" id="<?php echo $catat['id']; ?>"  onclick="ubahorder(
-                                         '<?php echo $catat['no_polisi'];?>',
-                                         '<?php echo $catat['fk_jenis_order'];?>',
-                                         '<?php echo $catat['nama'];?>',
+                                         '<?php echo $catat['fk_kota_asal'];?>',
+                                         '<?php echo $catat['asal'];?>',
+                                         '<?php echo $catat['alamat_asal'];?>',
+                                         '<?php echo $catat['fk_kota_tujuan'];?>',
+                                         '<?php echo $catat['tujuan'];?>',
+                                         '<?php echo $catat['alamat_tujuan'];?>',
+                                         '<?php echo $catat['tanggal'];?>',
+                                         '<?php echo $catat['fk_jenis_truck'];?>',
+                                         '<?php echo $catat['truck'];?>',
                                          '<?php echo $catat['size'];?>',
-                                         '<?php echo $catat['tahun'];?>',
+                                         '<?php echo $catat['berat'];?>',
+                                         '<?php echo $catat['dimensi_p'];?>',
+                                         '<?php echo $catat['dimensi_l'];?>',
+                                         '<?php echo $catat['dimensi_t'];?>',
                                          '<?php echo $catat['ids'];?>',
                                         );"><span>Ubah</span></button>
                                          <button type="button" class="btn btn btn-default btn-circle" id="<?php echo $catat['ids']; ?>" onclick="open_del(iddelsatuan='<?php echo $catat['ids']; ?>');"><span>Hapus</span></button>

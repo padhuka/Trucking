@@ -205,16 +205,19 @@
               $('#saveedit').hide();
               $('#canceledit').hide();
 
-              $('#jenisorderhid').val('');
-              $('#jenisorder').val('');              
-              $('#ukuranorder').val('');
-              $('#tahun').val('');
-              $('#nopol').val('');
-              $('#nopolhid').val('');
-              $('#stnk').val('');   
-              $('#kir').val('');
-              $('#foto').val('');
+              $('#asalid').val('');
+              $('#asal').val('');              
+              $('#tujuanid').val('');
+              $('#tujuan').val('');
+              $('#alamatasal').val('');
+              $('#alamattujuan').val('');
+              $('#tgl').val('');   
+              $('#p').val('');
+              $('#l').val('');
+              $('#t').val('');
+              $('#catatan').val('');
               $('#idhid').val('');
+
             }
 
             function bataladd(){
@@ -224,14 +227,27 @@
             function batalubah(){
               refresh();
             }
-            function ubahorder(a,b,c,d,e,f,g,h,i){                
-                          //no_bukti,tr_date,transaction_type,fk_akun,nmakun,ref_akun,nmref,amount
-                          $('#nopol').val(a);
-                          $('#jenisorderhid').val(b);              
-                          $('#jenisorder').val(c);
-                          $('#ukuranorder').val(d);
-                          $('#tahun').val(e);
-                          $('#idhid').val(i);                          
+            function ubahorder(a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p){       
+
+                          $('#listorder').hide();
+                          $('#addorder').show();
+                          $('#asalid').val(a);
+                          $('#asal').val(b);              
+                          $('#alamatasal').val(c);
+                          $('#tujuanid').val(d);
+                          $('#tujuan').val(e);                          
+                          $('#alamattujuan').val(f);
+                          $('#tgl').val(g);   
+                          $('#jenistruckhiden').val(h);
+                          $('#jenistruck').val(i);
+                          $('#ukurantruck').val(j);                          
+                          $('#berat').val(k);
+                          $('#p').val(l);
+                          $('#l').val(m);
+                          $('#t').val(n);
+                          $('#catatan').val(o);   
+                          $('#idhid').val(p);   
+
                           $('#saveadd').hide();
                           $('#canceladd').hide();
                           $('#saveedit').show();
