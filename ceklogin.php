@@ -41,7 +41,7 @@ if (isset($_POST['register'])) {
 					$address = $_POST['alamat'];
 					$area_operasi = $_POST['areaoperasi'];
 
-					$sql = "INSERT INTO user (`username`,`password`,`mobile_number`,`email_address`,`activation_code`,user_type,no_ktp,address,area_operasi) VALUES('$username','$hash_password','$mobile_number','$email_address','$activation_code','$usertype','$no_ktp','$address','$area_operasi')";
+					$sql = "INSERT INTO user (username,password,mobile_number,email_address,activation_code,user_type,no_ktp,address,area_operasi) VALUES('$username','$hash_password','$mobile_number','$email_address','$activation_code','$usertype','$no_ktp','$address','$area_operasi')";
 					//echo $sql;
 
 					$result = mysqli_query($conn, $sql);
