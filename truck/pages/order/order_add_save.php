@@ -15,6 +15,7 @@
         $dimensi_t = trim($_POST['t']);
         $catatan = trim($_POST['catatan']);
         $fk_customer_id = trim($_POST['userid']);
+        $tarif = trim($_POST['tarif']);
         
         
         //message_back($id_satuan);
@@ -26,7 +27,7 @@
         if ($row){
             echo 'y';
         }else{*/
-		    $sqltbemp = "INSERT INTO orders (fk_kota_asal,fk_kota_tujuan,alamat_asal,alamat_tujuan,tanggal,fk_jenis_truck,berat,dimensi_p,dimensi_l,dimensi_t,catatan,fk_customer_id) VALUES ('$fk_kota_asal','$fk_kota_tujuan','$alamat_asal','$alamat_tujuan','$tanggal','$fk_jenis_truck','$berat','$dimensi_p','$dimensi_l','$dimensi_t','$catatan','$fk_customer_id')";
+		    $sqltbemp = "INSERT INTO orders (fk_kota_asal,fk_kota_tujuan,alamat_asal,alamat_tujuan,tanggal,fk_jenis_truck,berat,dimensi_p,dimensi_l,dimensi_t,catatan,fk_customer_id,tarif) VALUES ('$fk_kota_asal','$fk_kota_tujuan','$alamat_asal','$alamat_tujuan','$tanggal','$fk_jenis_truck','$berat','$dimensi_p','$dimensi_l','$dimensi_t','$catatan','$fk_customer_id','$tarif')";
             mysql_query($sqltbemp);
             //echo 'n';
         //}

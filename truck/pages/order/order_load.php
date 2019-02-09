@@ -1,6 +1,7 @@
                       <?php
                             include_once '../../lib/sess.php';
                             include_once '../../lib/config.php';
+                            include_once '../../lib/fungsi.php';
                       ?>
                       <table id="example1" class="table table-bordered table-hover">
                         <thead>
@@ -13,6 +14,7 @@
                           <th>Tanggal</th>
                           <th>Jenis Truck</th>
                           <th>Info Barang</th>
+                          <th>Tarif</th>
                           <th></th>
                         </tr>
                         </thead>
@@ -38,6 +40,7 @@
                           <td ><?php echo $catat['tanggal'];?></td>
                           <td ><?php echo $catat['truck'];?><br><?php echo $catat['size'];?></td>
                           <td ><?php echo $catat['berat'];?> Ton, <?php echo $catat['dimensi_p'];?> x <?php echo $catat['dimensi_l'];?> x <?php echo $catat['dimensi_t'];?></td>
+                          <td ><?php echo rupiah2($catat['tarif']);?></td>
                           <td >
                                         <button type="button" class="btn btn btn-default btn-circle" id="<?php echo $catat['id']; ?>"  onclick="ubahorder(
                                          '<?php echo $catat['fk_kota_asal'];?>',
@@ -55,6 +58,8 @@
                                          '<?php echo $catat['dimensi_l'];?>',
                                          '<?php echo $catat['dimensi_t'];?>',
                                          '<?php echo $catat['ids'];?>',
+                                         '<?php echo $catat['tarif'];?>',
+                                         '<?php echo $catat['catatan'];?>',
                                         );"><span>Ubah</span></button>
                                          <button type="button" class="btn btn btn-default btn-circle" id="<?php echo $catat['ids']; ?>" onclick="open_del(iddelsatuan='<?php echo $catat['ids']; ?>');"><span>Hapus</span></button>
 

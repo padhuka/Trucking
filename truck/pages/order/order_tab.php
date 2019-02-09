@@ -145,7 +145,7 @@
               </div>
               <!-- /.box-body -->
               <div class="box-footer">
-                  <input type="hidden" name="idhid" id="idhid">
+                  <input type="text" name="idhid" id="idhid">
                   <input type="hidden" name="userid" id="userid" value="<?php echo $userid;?>">
                   <button type="submit" class="btn btn-primary" id="saveadd">Simpan</button>
                   <button type="button" class="btn btn-primary" onclick="bataladd()" id="canceladd">Batal</button>
@@ -217,6 +217,7 @@
               $('#t').val('');
               $('#catatan').val('');
               $('#idhid').val('');
+              $('#tarif').val('');
 
             }
 
@@ -227,10 +228,11 @@
             function batalubah(){
               refresh();
             }
-            function ubahorder(a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p){       
+            function ubahorder(a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q){       
 
                           $('#listorder').hide();
                           $('#addorder').show();
+
                           $('#asalid').val(a);
                           $('#asal').val(b);              
                           $('#alamatasal').val(c);
@@ -245,8 +247,9 @@
                           $('#p').val(l);
                           $('#l').val(m);
                           $('#t').val(n);
-                          $('#catatan').val(o);   
-                          $('#idhid').val(p);   
+                          $('#idhid').val(o);   
+                          $('#tarif').val(p);   
+                          $('#catatan').val(q);   
 
                           $('#saveadd').hide();
                           $('#canceladd').hide();
@@ -255,17 +258,27 @@
             }
 
             function simpanubah(){
-                  var id = $('#idhid').val();
-                  var nopol = $('#nopol').val();              
-                  var jenisorder = $('#jenisorderhid').val();
-                  var tahun = $('#tahun').val(); 
+                  //var id = $('#idhid').val();
+                          var asalid=$('#asalid').val();    
+                          var alamatasal=$('#alamatasal').val();
+                          var tujuanid=$('#tujuanid').val();
+                          var alamattujuan =$('#alamattujuan').val();
+                          var tgl=$('#tgl').val();                             
+                          var berat=$('#berat').val();
+                          var p=$('#p').val();
+                          var l=$('#l').val();
+                          var t=$('#t').val();
+                          var catatan=$('#catatan').val();   
+                          var idhid=$('#idhid').val();   
+                          var tarif=$('#tarif').val(); 
+                          var jenistruckhid=$('#jenistruckhid').val(); 
                   //alert('pages/order/order_edit_save.php?kode='+id+'&nopol='+nopol+'&jenisorder='+jenisorder+'&tahun='+tahun+'&stnk='+stnk+'&kir='+kir+'&foto='+foto);
                    $.ajax({
-                                url: 'pages/order/order_edit_save.php?kode='+id+'&nopol='+nopol+'&jenisorder='+jenisorder+'&tahun='+tahun,
+                                url: 'pages/order/order_edit_save.php?id='+idhid+'&asalid='+asalid+'&alamatasal='+alamatasal+'&tujuanid='+tujuanid+'&alamattujuan='+alamattujuan+'&tgl='+tgl+'&berat='+berat+'&p='+p+'&l='+l+'&t='+t+'&catatan='+catatan+'&tarif='+tarif+'&jenistruckhid='+jenistruckhid,
                                 type: 'GET',
                                 success: function (data){               
                                   var hsl=data.trim();      
-                                  //alert(hsl);
+                                  alert(hsl);
                                   if (hsl=='y'){
                                     alert('Data Sudah Ada');
                                     return false();
