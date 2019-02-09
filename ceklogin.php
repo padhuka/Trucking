@@ -219,7 +219,7 @@ if (isset($_POST['forgot'])) {
 </head>
 <body>
 <!--Modal: Login / Register Form-->
-<div class="modal fade" id="modalLRForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modalx" id="modalLRForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 	<div class="modal-dialog cascading-modal" role="document">
 	  <!--Content-->
 	  <div class="modal-content">
@@ -269,7 +269,7 @@ if (isset($_POST['forgot'])) {
 				<div class="options text-center text-md-right mt-1">
 				  <p>Forgot <a class="blue-text" id="forgot" data-target="#ForgotPasswordModal" data-toggle="modal">Password?</a></p>
 				</div>
-				<button type="button" class="btn btn-outline-info waves-effect ml-auto" data-dismiss="modal">Close</button>
+				<button type="button" class="btn btn-outline-info waves-effect ml-auto" data-dismiss="modal" onclick="window.location.href = 'home/index.html'">Close</button>
 			  </div>
   
 			</div>
@@ -388,9 +388,9 @@ Area operasi-->
   </div>
 </div>
 
-<div class="text-center">
+<!--<div class="text-center">
   <a href="" class="btn btn-default btn-rounded my-3" id="LRButton" data-toggle="modal" data-target="#modalLRForm">LogIn/Register</a>
-</div>
+</div>-->
 
 <!-- jquery cdn -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
