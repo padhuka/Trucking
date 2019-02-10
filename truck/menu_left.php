@@ -52,7 +52,7 @@
             $sqlcatat = "SELECT * FROM orders A WHERE A.fk_customer_id='$userid' ORDER BY A.id DESC";
             $jmlorder=mysql_num_rows(mysql_query($sqlcatat));
             ?>
-            
+            •••••
             <li><a href="?p=order&pil=list"><i class="fa fa-book"></i><span>Order History (<?php echo $jmlorder;?>)</span></a></li>
           </ul>
         </li>
@@ -68,6 +68,22 @@
             <li><a href="?p=order&pil=reg"><i class="fa fa-book"></i><span>Create Order</span></a></li>
           </ul>
         </li> 
+      <?php }?>
+       <?php if ($seskdlvl=='admin'){?>
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-laptop"></i>
+            <span>Admin</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="?p=orderadmin&pil=list"><i class="fa fa-book"></i><span>Order History</span></a></li>
+            <li><a href="?p=truckadmin&pil=list"><i class="fa fa-book"></i><span>List Truck</span></a></li>
+          </ul>
+        </li>
+        
       <?php }?>
         <li><a href="logout.php"><i class="fa fa-laptop"></i><span>Logout</span></a></li>
         

@@ -13,6 +13,8 @@
                         //===================== truck ===========================
                         case 'truck': include_once 'pages/truck/truck_tab.php';break;
                         case 'order': include_once 'pages/order/order_tab.php';break;
+                        case 'orderadmin': include_once 'pages/admin/order_tab.php';break;
+                        case 'truckadmin': include_once 'pages/admin/truck_tab.php';break;
                       }
         ?>
   

@@ -206,7 +206,7 @@ if (isset($_POST['forgot'])) {
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Email Sending Demo</title>
+    <title>Login | Trucking Solutions Indonesia</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- bootstrap font awesome cdn  -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
