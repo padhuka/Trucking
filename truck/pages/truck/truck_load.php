@@ -22,6 +22,7 @@
                                                 LEFT JOIN jenis_truck B ON A.fk_jenis_truck=B.id
                                                 WHERE A.fk_user_id='$userid'
                                     ORDER BY A.id DESC";
+                                    //echo $sqlcatat;
                                     $rescatat = mysql_query( $sqlcatat );
                                     while($catat = mysql_fetch_array( $rescatat )){
                                       //  id  fk_user_id  no_polisi   fk_jenis_truck  tahun   stnk  kir   fot
@@ -42,6 +43,9 @@
                                          '<?php echo $catat['size'];?>',
                                          '<?php echo $catat['tahun'];?>',
                                          '<?php echo $catat['ids'];?>',
+                                         '<?php echo "<img src=data:image/jpeg;base64,".base64_encode( $catat['stnk'] )." width=100 />";?>',
+                                         '<?php echo "<img src=data:image/jpeg;base64,".base64_encode( $catat['kir'] )." width=100 />";?>',
+                                         '<?php echo "<img src=data:image/jpeg;base64,".base64_encode( $catat['foto'] )." width=100 />";?>',
                                         );"><span>Ubah</span></button>
                                          <button type="button" class="btn btn btn-default btn-circle" id="<?php echo $catat['ids']; ?>" onclick="open_del(iddelsatuan='<?php echo $catat['ids']; ?>');"><span>Hapus</span></button>
 

@@ -123,11 +123,10 @@
               <div class="box-footer">
                 <input type="hidden" name="idhid" id="idhid">
                 <input type="hidden" name="userid" id="userid" value="<?php echo $userid;?>">
-                <input type="hidden" name="simpan" id="simpan" value="saveadd">
                 <button type="submit" class="btn btn-primary" id="saveadd">Simpan</button>
                 <button type="button" class="btn btn-primary" onclick="bataladd()" id="canceladd">Batal</button>
-                <!--<button type="submit" class="btn btn-primary" id="saveedit">Simpan</button>-->
-                
+
+                <button type="button" class="btn btn-primary" onclick="simpanubah()" id="saveedit">Simpan</button>
               <button type="button" class="btn btn-primary" onclick="batalubah()" id="canceledit">Batal</button>
               </div>
               <!-- /.box-footer -->
@@ -151,9 +150,9 @@
   }
           refresh();
             function refresh(){
-              //$('#saveadd').show();
+              $('#saveadd').show();
               $('#canceladd').show();
-              //$('#saveedit').hide();
+              $('#saveedit').hide();
               $('#canceledit').hide();
 
               $('#jenistruckhid').val('');
@@ -189,12 +188,10 @@
                           $('#kir1').html(h); 
                           $('#foto1').html(i); 
 
-                          //$('#saveadd').hide();
+                          $('#saveadd').hide();
                           $('#canceladd').hide();
-                          //$('#saveedit').show();
+                          $('#saveedit').show();
                           $('#canceledit').show();
-
-                          $('#simpan').val('saveedit');                          
             }
 
             function simpanubah(){
@@ -212,7 +209,7 @@
                                 type: 'POST',
                                 success: function (data){               
                                   var hsl=data.trim();      
-                                  //alert(hsl);
+                                  alert(hsl);
                                   if (hsl=='y'){
                                     alert('Data Sudah Ada');
                                     return false();
@@ -227,23 +224,15 @@
                                 }
                         });
               }
-            
+
             $(document).ready(function (){
                  $("#tabletruck").load('pages/truck/truck_load.php');
 
                     $("#formtruck").on('submit', function(e){
                           e.preventDefault();
-                                    var simpan = $('#simpan').val();
-                                      if (simpan=='saveedit'){
-                                        var urle='pages/truck/truck_edit_save.php';
-                                      }
-                                      if (simpan=='saveadd'){
-                                        var urle='pages/truck/truck_add_save.php';
-                                      }
-                                      //return false;
                                       $.ajax({
                                                   type: 'POST',
-                                                  url: urle,
+                                                  url: 'pages/truck/truck_add_save.php',
                                                   data: new FormData(this),
                                                   contentType: false,
                                                   cache: false,
@@ -261,13 +250,8 @@
                                                       $("#tabletruck").load('pages/truck/truck_load.php');  
                                                       refresh();
                                                             alert('Data Berhasil Disimpan');
-                                                      if (simpan=='saveedit'){
-                                                        $('#listtruck').show();
-                                                        $('#add').hide();
-                                                      }
                                                   }
                                                       }
-                                                      
                                                 });
                       });
             });
