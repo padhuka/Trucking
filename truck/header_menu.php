@@ -13,10 +13,13 @@
     </a>-->
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top"  style="margin-left: -0px;">
+
       <div class="navbar-custom-menu" style="float: left;">
         <!--<img src="dist/img/user-160x160x.jpg" class="user-image" alt="User Image" height="60" width="60" style="padding: 5px 5px 5px 5px;">-->
               <span style="font-size: 20px; color: #FFFFFF;">&nbsp;&nbsp;&nbsp;&nbsp;Trucking Solutions Indonesia</span>
-        
+        <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button" style="float: left;">
+        <span class="sr-only">Toggle navigation</span>
+      </a>
       </div>  
     </nav>
 <script>
