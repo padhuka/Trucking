@@ -1,3 +1,4 @@
+
 <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
 
@@ -122,7 +123,7 @@
                   <label for="inputEmail3" class="col-sm-4 control-label">Berat</label>
 
                   <div class="col-sm-5">
-                      <input type="text" class="form-control" id="berat" name="berat">
+                      <input type="text" class="form-control" id="berat" name="berat" onkeypress="return isNumberKey(event)">
                   </div>Ton
                 </div>      
                     
@@ -130,7 +131,7 @@
                   <label for="inputEmail3" class="col-sm-4 control-label">Dimensi</label>
 
                   <div class="col-sm-8">
-                      <table><tr><td>P : <input type="text" id="p" name="p" style="width: 34px;"></td><td>&nbsp;&nbsp;L : <input type="text" id="l" name="l" style="width: 40px;"></td><td>&nbsp;&nbsp;T : <input type="text" id="t" name="t" style="width: 40px;"></td></tr></table>
+                      <table><tr><td>P : <input type="text" id="p" name="p" style="width: 34px;" onkeypress="return isNumberKey(event)"></td><td>&nbsp;&nbsp;L : <input type="text" id="l" name="l" style="width: 40px;" onkeypress="return isNumberKey(event)"></td><td>&nbsp;&nbsp;T : <input type="text" id="t" name="t" style="width: 40px;" onkeypress="return isNumberKey(event)"></td></tr></table>
                       
                   </div>
                 </div>  
@@ -298,6 +299,7 @@
             $(document).ready(function (){
                  $("#tableorder").load('pages/order/order_load.php');
 
+
                     $("#formorder").on('submit', function(e){
                           e.preventDefault();
                                       $.ajax({
@@ -334,3 +336,24 @@
 <?php if ($_GET['p']=='order' && $_GET['pil']=='reg'){
   echo "<script>$('#listorder').hide();</script>";
 }?>
+
+<script>
+  function isNumberKey(evt)
+      {
+        var charCode = (evt.which) ? evt.which : evt.keyCode;
+        if (charCode != 46 && charCode > 31 
+        && (charCode < 48 || charCode > 57))
+        return false;
+        return true;
+      }  
+      
+      
+      function isNumericKey(evt)
+      {
+        var charCode = (evt.which) ? evt.which : evt.keyCode;
+        if (charCode != 46 && charCode > 31 
+        && (charCode < 48 || charCode > 57))
+        return true;
+        return false;
+      } 
+</script>
