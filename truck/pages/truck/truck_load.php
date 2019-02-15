@@ -14,7 +14,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 .myImg:hover {opacity: 0.7;}
 
 /* The Modal (background) */
-.modal {
+.modal2 {
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */
@@ -29,7 +29,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 }
 
 /* Modal Content (image) */
-.modal-content {
+.modal-content2 {
   margin: auto;
   display: block;
   width: 80%;
@@ -49,7 +49,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 }
 
 /* Add Animation */
-.modal-content, #caption {  
+.modal-content2, #caption {  
   -webkit-animation-name: zoom;
   -webkit-animation-duration: 0.6s;
   animation-name: zoom;
@@ -67,7 +67,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 }
 
 /* The Close Button */
-.close {
+.close2 {
   position: absolute;
   top: 60px;
   right: 400px;
@@ -77,8 +77,8 @@ body {font-family: Arial, Helvetica, sans-serif;}
   transition: 0.3s;
 }
 
-.close:hover,
-.close:focus {
+.close2:hover,
+.close2:focus {
   color: #bbb;
   text-decoration: none;
   cursor: pointer;
@@ -86,11 +86,12 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
 /* 100% Image Width on Smaller Screens */
 @media only screen and (max-width: 700px){
-  .modal-content {
+  .modal-content2 {
     width: 100%;
   }
 }
 </style>
+          
                       <table id="example1" class="table table-bordered table-hover">
                         <thead>
                         <tr>
@@ -146,15 +147,15 @@ body {font-family: Arial, Helvetica, sans-serif;}
                       </table>
                      <!--  <img id="myImg" src="img_snow.jpg" alt="Snow" style="width:100%;max-width:300px">
 The Modal -->
-<div id="myModal" class="modal">
-  <span class="close">&times;</span>
-  <img class="modal-content" id="img01">
+<div id="myModal2" class="modal2">
+  <span class="close2">&times;</span>
+  <img class="modal-content2" id="img01">
   <div id="caption"></div>
 </div>
 
 <script>
 // Get the modal
-var modal = document.getElementById('myModal');
+var modal2 = document.getElementById('myModal2');
 
 // Get the image and insert it inside the modal - use its "alt" text as a caption
 var imgstnk = document.getElementById('stnk1');
@@ -163,27 +164,27 @@ var imgfoto = document.getElementById('foto1');
 var modalImg = document.getElementById("img01");
 var captionText = document.getElementById("caption");
 imgstnk.onclick = function(){
-  modal.style.display = "block";
+  modal2.style.display = "block";
   modalImg.src = this.src;
   captionText.innerHTML = this.alt;
 }
 imgkir.onclick = function(){
-  modal.style.display = "block";
+  modal2.style.display = "block";
   modalImg.src = this.src;
   captionText.innerHTML = this.alt;
 }
 imgfoto.onclick = function(){
-  modal.style.display = "block";
+  modal2.style.display = "block";
   modalImg.src = this.src;
   captionText.innerHTML = this.alt;
 }
 
 // Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
+var span = document.getElementsByClassName("close2")[0];
 
 // When the user clicks on <span> (x), close the modal
 span.onclick = function() { 
-  modal.style.display = "none";
+  modal2.style.display = "none";
 }
 </script>
                       <script>
@@ -201,4 +202,5 @@ span.onclick = function() {
                                     }
                                 });
                         };
+                        
                       </script>

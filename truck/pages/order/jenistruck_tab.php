@@ -1,4 +1,4 @@
-      <?php
+    <?php
     include_once 'lib/config.php';
    ?>
      <div id="ModalTruck" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -42,7 +42,7 @@
               </div>
               </div>
               </div>
-              <script type="text/javascript">
+              <script>
                 $('#truck').DataTable();
                 function pilih3(x,y,z){
                               $("#jenistruckhid").val(x);
@@ -54,7 +54,7 @@
                       }; 
               </script>
 
-  <style type="text/css">onchange="tarif();
+  <style type="text/css">
   .modal-header {
     padding-top: 15px;padding-bottom: 15px;
   }

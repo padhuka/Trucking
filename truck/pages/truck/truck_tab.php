@@ -16,44 +16,33 @@
         <!-- left column -->
         <div id="listtruck">
         
-        <div class="col-md-12">
-          <h3>
-        List Truck
-        <!--<small>Control panel</small>-->
-      </h3>
+          <div class="col-md-12">
+              <h3>
+                List Truck
+                <!--<small>Control panel</small>-->
+              </h3>
           <!-- general form elements -->
-          <div class="box box-primary">
-            <!--<div class="box-header with-border">
-              <h3 class="box-title">Quick Example</h3>
-            </div>
-             /.box-header -->
-            <!-- form start 
-            <form role="form">-->
-              <div class="box-body">
-                <div id="tabletruck">
+                <div class="box box-primary">                  
+                    <div class="box-body">
+                      <div id="tabletruck">
+                      </div>
+                    </div>                    
                 </div>
-              </div>
-              <!-- /.box-body 
-              <div class="box-footer">
-                <button type="submit" class="btn btn-primary">Submit</button>
-              </div>
-            </form>-->
+            <!-- /.box -->
+          </div>
+        </div> <!-- listtruck -->
 
-          </div>
-          <!-- /.box -->
-        </div>
-</div> <!-- listtruck -->
-<div id="add">
+      <div id="add">
        
-        <div class="col-md-12">
-           <h3>
-        Registrasi Armada
-        <!--<small>Control panel</small>-->
-      </h3>
-          <!-- general form elements -->
-          <div class="box box-primary">
-          </div>
-        </div>
+              <div class="col-md-12">
+                    <h3>
+                      Registrasi Armada
+                      <!--<small>Control panel</small>-->
+                    </h3>
+                <!-- general form elements -->
+                        <div class="box box-primary">
+                        </div>
+              </div>
         <div class="col-md-4">
           <!-- Horizontal Form -->
           <div class="box box-infos">
@@ -80,7 +69,7 @@
                     <input type="hidden" class="form-control" id="jenistruckhid" name="jenistruckhid" readonly="yes">
                       <input type="text" class="form-control" id="jenistruck" name="jenistruck" readonly="yes" >
                        <input type="text" class="form-control" id="ukurantruck" name="ukurantruck" readonly="yes" >
-                      <button type="button" class="btn btn-primary btn-md data-toggle="modal" data-target="#myModal" onclick="jenistruckpilih();">Pilih</button>
+                      <button type="button" class="btn btn-primary btn-md data-toggle="modal" data-target="#myModal" onclick="pilihtruck();">Pilih</button>
                   </div>
                 </div>
                 
@@ -109,6 +98,7 @@
                     <input type="file" class="form-control" id="kir" name="kir" required>
                   </div>
                 </div>  
+
                 <div class="form-group">
                   <label for="inputPassword3" class="col-sm-5 control-label">Foto</label>
 
@@ -128,11 +118,12 @@
                 <button type="button" class="btn btn-primary" onclick="bataladd()" id="canceladd">Batal</button>
                 <!--<button type="submit" class="btn btn-primary" id="saveedit">Simpan</button>-->
                 
-              <button type="button" class="btn btn-primary" onclick="batalubah()" id="canceledit">Batal</button>
+                <button type="button" class="btn btn-primary" onclick="batalubah()" id="canceledit">Batal</button>
               </div>
               <!-- /.box-footer -->
             </form>
           </div>
+        </div>
   </div> <!-- add-->
 
     </div>
@@ -146,9 +137,6 @@
 <?php include_once 'jenistruck_tab.php';?>
 <script>  
 
-  function jenistruckpilih(){  
-    $("#ModalTruck").modal({backdrop: 'static',keyboard: false});   
-  }
           refresh();
             function refresh(){
               //$('#saveadd').show();
@@ -174,6 +162,7 @@
               $('#listtruck').show();
               $('#add').hide();
             }
+
             function ubahtruck(a,b,c,d,e,f,g,h,i){                
                           //no_bukti,tr_date,transaction_type,fk_akun,nmakun,ref_akun,nmref,amount
                           $('#listtruck').hide();
@@ -272,7 +261,10 @@
                       });
             });
 
-
+function pilihtruck(){  
+                $("#ModalTruck").modal({backdrop: 'static',keyboard: false});   
+              }
+  
 </script>
 <?php if ($_GET['p']=='truck' && $_GET['pil']=='list'){
   echo "<script>$('#add').hide();</script>";

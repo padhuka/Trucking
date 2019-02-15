@@ -1,4 +1,4 @@
-      <?php
+    <?php
     //include_once 'lib/config.php';
    ?>
      <div id="ModalTruck" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -11,7 +11,7 @@
                     </div>
 
                   <div class="box">
-                <table id="pilihtruck2" class="table table-condensed table-bordered table-striped table-hover">
+                <table id="truck" class="table table-condensed table-bordered table-striped table-hover">
                 <thead class="thead-light">
                 <tr>
                           <th>Nama</th>
@@ -30,7 +30,7 @@
                           <td ><?php echo $catat1['nama'];?></td>
                           <td ><?php echo $catat1['size'];?></td>
                           <td >
-                                        <button type="button" class="btn btn btn-default btn-circle" onclick="pilih('<?php echo $catat1['id'];?>','<?php echo $catat1['nama'];?>','<?php echo $catat1['size'];?>');">Pilih</button>
+                                        <button type="button" class="btn btn btn-default btn-circle" onclick="pilih3('<?php echo $catat1['id'];?>','<?php echo $catat1['nama'];?>','<?php echo $catat1['size'];?>');">Pilih</button>
 
                                     </td>
                         </tr>
@@ -42,13 +42,17 @@
               </div>
               </div>
               </div>
-              <script type="text/javascript">
-                $('#pilihtruck2').DataTable();
-                function pilih(x,y,z){
+              <script>
+                $(function () {
+                          $('#truck').DataTable()
+                        });
+
+                function pilih3(x,y,z){
                               $("#jenistruckhid").val(x);
                               $("#jenistruck").val(y);
                               $("#ukurantruck").val(z);
                               $("#ModalTruck").modal('hide');
+                              //tarifs();
                            
                       }; 
               </script>
