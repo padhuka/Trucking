@@ -11,7 +11,7 @@
                     </div>
 
                   <div class="box">
-                <table id="group1" class="table table-condensed table-bordered table-striped table-hover">
+                <table id="pilihtruck2" class="table table-condensed table-bordered table-striped table-hover">
                 <thead class="thead-light">
                 <tr>
                           <th>Nama</th>
@@ -43,7 +43,7 @@
               </div>
               </div>
               <script type="text/javascript">
-                $('#group1').DataTable();
+                $('#pilihtruck2').DataTable();
                 function pilih(x,y,z){
                               $("#jenistruckhid").val(x);
                               $("#jenistruck").val(y);
